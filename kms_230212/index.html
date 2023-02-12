@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>과일 숙성도 분류 시스템</title>
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	
+        <link rel="stylesheet" href="dropdown-style.css" />
+        <link rel="stylesheet" href="fileupload-style.css" />
+        <link rel="stylesheet" href="tank-style.css" />
+        <link rel="stylesheet" href="mobile.css" />
+    </head>
+    <body>
+        <center>
+            <br>
+            <div id="title-container">
+                <h1>과일 숙성도 분류 시스템</h1>
+            </div>
+            
+            <div id="tab-container">
+                <div class="tab">
+                    <button class="tab-btn" type="button" onclick="clickTabBtn('file');" >
+                        Image File
+                    </button>
+                    <button class="tab-btn tab-btn-pressed" type="button" onclick="clickTabBtn('webcam');" >
+                        Web CAM
+                    </button>   
+                </div>
+            </div>
+
+            <div id="file-container">
+                <div class="file-upload">
+                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )" style="font-size: 20px; padding: 5px; width: 90%;" >
+                        숙성 예측
+                    </button>
+
+                    <br>
+                    <br>                    
+                    <div class="result-container">
+                        <table>
+                            <tr>
+                                <th class="tFruit1">미숙성</th>
+                                <th class="tFruit0">숙성</th>
+                                <th class="tFruit2">과숙성</th>
+                            </tr>
+                            <tr>
+                                <td class="fruit1">-</td>
+                                <td class="fruit0">-</td>
+                                <td class="fruit2">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" type="file" onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>Drag and drop a file or select add Image</h3>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" id="file_img" onload="predict()" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image" style="background:#dfdbda;">
+                                초기화 <!-- span class="image-title">Uploaded Image</span -->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="webcam-container-big" style="display:none;">
+                <div class="webcam-upload">       
+                    <div class="result-container">
+                        <table>
+                            <tr>
+                                <th class="tFruit1">미숙성</th>
+                                <th class="tFruit0">숙성</th>
+                                <th class="tFruit2">과숙성</th>
+                            </tr>
+                            <tr>
+                                <td class="fruit1">-</td>
+                                <td class="fruit0">-</td>
+                                <td class="fruit2">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+					<div id="webcam-container"></div>
+                </div>
+            </div>
+            
+			<div id="label-container" style="display:none;"></div>
+        </center>
+        <br>
+        <br>
+        <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="fileupload.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

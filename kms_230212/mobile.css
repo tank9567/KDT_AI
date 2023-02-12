@@ -1,0 +1,26 @@
+@media all and (max-width:800px) {
+    body {
+        width: 91%;
+    }
+
+    .tab {
+        background-color: #ffffff;
+        display: flex;
+        width: 95%;
+        /* margin: 0 auto; */
+        padding: 20px;
+        padding-bottom: 0px;
+    }
+
+    .file-upload {
+        width: 95%;
+    }
+
+    .webcam-upload {
+        width: 95%;
+    }
+	
+	#webcam-container canvas {
+        width: 95%;
+	}
+}
